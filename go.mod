@@ -47,6 +47,9 @@ require (
 	gotest.tools v2.2.0+incompatible // indirect
 )
 
+// Github forked
+replace github.com/wagoodman/dive => github.com/TerraTech/dive v0.0.0
+
 // related to an invalid pseudo version in github.com/docker/distribution@v0.0.0-20181126153310-93e082742a009850ac46962150b2f652a822c5ff
 replace github.com/docker/distribution => github.com/docker/distribution v2.7.0-rc.0.0.20181024170156-93e082742a00+incompatible
 
