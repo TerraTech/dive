@@ -191,7 +191,18 @@ func getDefaultCfgFile() string {
 			return file
 		}
 	}
-	return path.Join(home, ".dive.yaml")
+
+	homeCfg := path.Join(home, ".dive.yaml")
+	if fileExists("/etc/dive.yaml") && !fileExists(homeCfg) {
+		return "/etc/dive.yaml"
+	}
+
+	return homeCfg
+}
+
+func fileExists(name string) bool {
+	_, err := os.Stat(name)
+	return err == nil
 }
 
 // findInPath returns first "*.yaml" file in path's subdirectory "dive"
